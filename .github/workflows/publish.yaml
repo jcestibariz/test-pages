@@ -2,9 +2,9 @@ name: publish
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
           tar cf "$RUNNER_TEMP/artifact.tar" -C .out .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v1
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
